@@ -2,10 +2,8 @@
 
 Port of X11 oneko to SDL 
 
-I attempted to preserve as much of the original code as possible.
-
 ## not yet implemented
-* other animals - xneko, the original had only the cat.  Oneko has multiple cute animals.
+* other animals - xneko, the original had only the cat.  Oneko has multiple animals.
 * cursors - the original version converts the mouse pointer into a mouse or bone. Not sure how that translates to an SDL touch device.
 
 ## Getting Started
@@ -26,6 +24,14 @@ Build system is not used on oneko because there is only one source file that inc
 ```
 gcc oneko_sdl.c xbm_helper.c -o sdl_oneko `pkg-config --cflags --libs sdl2` -I. -I.. -DUSE_SDL
 ```
+
+### Implementation notes:
+
+I attempted to preserve as much of the original code as possible, but at this point, any more changes to the structure,
+and I'm better off abandoning a preservationist approach and should simply rewrite the entire thing using modern coding standards.
+
+I also tried keeping the SDL version free of platform specific code (#ifdef's etc), but using pure SDL may not be possible
+for many platforms.
 
 ### Usage
 
