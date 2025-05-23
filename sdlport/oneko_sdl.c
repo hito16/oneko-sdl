@@ -893,7 +893,11 @@ void DeInitAll(SDL_Window* window, SDL_Renderer* renderer) {
 }
 
 
+#ifdef BUILD_AS_FUNCTION
+int oneko_main(int argc, char* argv[]) {
+#else
 int main(int argc, char* argv[]) {
+#endif
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
 

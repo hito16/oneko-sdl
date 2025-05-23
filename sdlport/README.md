@@ -1,4 +1,4 @@
-# oneko
+# oneko - Part 1
 
 Port of X11 oneko to SDL 
 
