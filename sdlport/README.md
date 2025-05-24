@@ -1,6 +1,8 @@
-# oneko - Part 1
+# oneko 
 
 Port of X11 oneko to SDL 
+
+I attempted to preserve as much as the original code and design as possible.
 
 ## not yet implemented
 * other animals - xneko, the original had only the cat.  Oneko has multiple animals.
@@ -19,10 +21,10 @@ Port of X11 oneko to SDL
 make
 ```
 
-Build system is not used on oneko because there is only one source file that includes all headers. The command below produces `sdl_oneko` executable.
+Build system is not used on oneko because there is only one source file that includes all headers. The command below produces `oneko-sdl` executable.
 
 ```
-gcc oneko_sdl.c xbm_helper.c -o sdl_oneko `pkg-config --cflags --libs sdl2` -I. -I.. -DUSE_SDL
+gcc oneko_sdl.c xbm_helper.c -o oneko-sdl `pkg-config --cflags --libs sdl2` -I. -I.. -DUSE_SDL
 ```
 
 ### Implementation notes:
