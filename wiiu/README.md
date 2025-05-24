@@ -48,5 +48,5 @@ root@devkitppc:/project/wiiu# wiiload oneko_sdl_wiiu.wuhb
 
 ## Acknowledgements
 
-Thanks to DanielKO for his help getting this work on the WiiU. Especially, thankful for his changes
-to the WiiU cod e
+Thanks to DanielKO for his help getting this to work on the WiiU. There is no way I would have gotten
+proper exit behavior without him, and his SDL fixes will prevent future pain.

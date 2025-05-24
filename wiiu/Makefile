@@ -25,6 +25,7 @@ SOURCES		:=	. ../sdlport
 # options for code generation
 #-------------------------------------------------------------------------------
 
+#  add this if you're using patched SDL -DHAS_DKO_SDL_QUIT_FIXES
 CPPFLAGS :=			\
 	$(INCLUDE)		\
 	-I$(TOPDIR)/..		\
@@ -32,8 +33,7 @@ CPPFLAGS :=			\
 	-D__WUT__		\
 	-DBIGENDIAN		\
 	-Dmain=real_main	\
-	-DUSE_SDL		\
-	-DBUILD_AS_FUNCTION
+	-DUSE_SDL
 
 CFLAGS :=			\
 	-O2			\
