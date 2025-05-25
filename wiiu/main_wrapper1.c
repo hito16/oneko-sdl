@@ -21,8 +21,6 @@ that program's main() with this wrapper.
 
 #ifndef HAS_DKO_SDL_QUIT_FIXES
 #include <sysapp/title.h>       // SYSCheckTitleExists()
-#include <sysapp/launch.h>
-#include <whb/proc.h>
 #endif
 
 #include <SDL.h>	// check if we have latest version
@@ -40,23 +38,12 @@ int main(int argc, char** argv) {
 // - ProcUI cleanup on `SDL_Quit()`
 // - Foreground/background events.
 //
-// Remove #else section once DKO_CUSTOM_SDL fixes
+// Remove ifndef section once DKO_CUSTOM_SDL fixes
 // are included in the next official SDL release
 //
-#ifdef HAS_DKO_SDL_QUIT_FIXES
-    return real_main(argc, argv);  // isn't the future so simple and clean?
-#else // planned obsolence
+#ifndef HAS_DKO_SDL_QUIT_FIXES
     SYSCheckTitleExists(0);      // workaround for SDL bug
-
-    int res = real_main(argc,argv);
-
-    // User pressed '-', initiating an exit. 
-    // We need to cleanly return to WiiU main menu.
-    // ie. workaround for SDL_QUIT and SDL_Quit()
-    WHBProcInit();              // pre-req for WHBProcIsRunning()
-    SYSLaunchMenu();            // tell WiiU app we're quitting 
-    while (WHBProcIsRunning()); // check WiiU process state until ok to exit.
-
-    return res;
 #endif
+    return real_main(argc, argv);  // isn't the future so simple and clean?
+
 }

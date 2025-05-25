@@ -50,3 +50,11 @@ root@devkitppc:/project/wiiu# wiiload oneko_sdl_wiiu.wuhb
 
 Thanks to DanielKO for his help getting this to work on the WiiU. There is no way I would have gotten
 proper exit behavior without him, and his SDL fixes will prevent future pain.
+
+
+# notes on patched SDL
+
+DanielKO provided patched SDL source to support exiting. Without these fixes, 
+the app cannot exit back to the memory correctly.  In its current form,
+you can press the "Home" button, and exit to the Home Menu.  However, exiting
+from within the app (press '-') doesn't work correctly.

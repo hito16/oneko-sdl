@@ -21,6 +21,10 @@ TARGET		:=	oneko_sdl_wiiu
 BUILD		:=	build
 SOURCES		:=	. ../sdlport
 
+export APP_ICON		:=	$(TOPDIR)/res/wuhb/iconTex.png
+export APP_TV_SPLASH	:=	$(TOPDIR)/res/wuhb/bootTvTex.png
+export APP_DRC_SPLASH	:=	$(TOPDIR)/res/wuhb/bootDrcTex.png	
+
 #-------------------------------------------------------------------------------
 # options for code generation
 #-------------------------------------------------------------------------------
@@ -98,6 +102,7 @@ CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
 SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
 BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
 
+
 #-------------------------------------------------------------------------------
 # use CXX for linking C++ projects, CC for standard C
 #-------------------------------------------------------------------------------
@@ -122,10 +127,14 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			-I$(CURDIR)/$(BUILD)
 
 export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+
 .PHONY: $(BUILD) clean all dist
 
 #-------------------------------------------------------------------------------
 all: $(BUILD)
+
+dist: all
+	@cp $(TARGET).rpx $(TARGET).wuhb dist/wiiu/apps/onekosdl/
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
@@ -138,6 +147,8 @@ clean:
 
 #-------------------------------------------------------------------------------
 else
+
+
 .PHONY:	all
 
 DEPENDS	:=	$(OFILES:.o=.d)
