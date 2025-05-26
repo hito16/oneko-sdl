@@ -1,5 +1,26 @@
 # Oneko-sdl WiiU recompile
 
+## Install
+
+copy the following folder dist/wiiu/apps/onekosdl/
+
+to the root of your SD card. When complete, you SD card should look like
+
+```
+sd:/
+  wiiu/
+    apps/
+      onekosdl/
+        icon.png  
+        meta.xml
+        oneko_sdl_wiiu.rpx
+        oneko_sdl_wiiu.wuhb
+ 
+```
+
+* [Aroma]  Load the new app from the WiiU home menu.
+* [Haxchi] Load the rpx through the homebrew channel
+
 ## Build
 
 1. Set up a WiiU devkitpro PPC build environment or run Docker
